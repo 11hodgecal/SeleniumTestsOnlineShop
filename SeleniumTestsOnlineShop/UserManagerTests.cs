@@ -46,19 +46,21 @@ namespace SeleniumTestsOnlineShop
             if (ManagerDeleteBtn != null)
             {
                 ManagerDeleteBtn.Click();
+                try
+                {
+                    IWebElement ManagerDeleteBtnFind = driver.FindElement(By.XPath("" +
+                    "/html/body/div/main/table/tbody/tr[2]/td[6]/a"));
+
+                }
+                catch (Exception ex)
+                {
+                    Assert.Pass("Deleted User");
+                }
+
+                Assert.Fail("Failed to Delete User");
             }
 
-            IWebElement ManagerDeleteBtnFind = driver.FindElement(By.XPath("" +
-                "/html/body/div/main/table/tbody/tr[2]/td[6]/a"));
-
-            if (ManagerDeleteBtnFind == null)
-            {
-                Assert.Pass("Deleted User");
-            }
-            if (ManagerDeleteBtnFind != null)
-            {
-                Assert.Fail("Failed to delete User");
-            }
+            
         }
 
         
