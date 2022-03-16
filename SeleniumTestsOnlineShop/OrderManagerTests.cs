@@ -36,10 +36,12 @@ namespace SeleniumTestsOnlineShop
         public void EditBackRedirectsCorrectly()
         {
             string expected = "https://localhost:5001/Admin/Order";
-            IWebElement deletebutton = driver.FindElement(By.XPath("/html/body/div/main/table/tbody/tr/td[10]/a[3]"));
+            IWebElement deletebutton = driver.FindElement(By.XPath("/html" +
+                "/body/div/main/table/tbody/tr/td[10]/a[3]"));
             deletebutton.Click();
 
-            IWebElement BackToListbutton = driver.FindElement(By.XPath("/html/body/div/main/div/form/a"));
+            IWebElement BackToListbutton = driver.FindElement(By.XPath("/html" +
+                "/body/div/main/div/form/a"));
             BackToListbutton.Click();
 
             Assert.AreEqual(expected, driver.Url);
@@ -52,7 +54,7 @@ namespace SeleniumTestsOnlineShop
         [OneTimeTearDown]
         public void End()
         {
-            //driver.Close();
+            driver.Close();
         }
     }
 }
