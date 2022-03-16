@@ -69,8 +69,8 @@ namespace SeleniumTestsOnlineShop
             }
         }
 
-        
-        
+
+
 
         [OneTimeTearDown]
         public void End()
