@@ -31,8 +31,17 @@ namespace SeleniumTestsOnlineShop
             RoleManagerBtn.Click();
 
         }
-
         [Test, Order(1)]
+        public void RoleCreated()
+        {
+            //if the item does not exist create a new one and delete it
+            IWebElement create = driver.FindElement(By.XPath("" +
+                "/html/body/div/main/form/div/input"));
+            create.SendKeys("Test");
+            create.Submit();
+        }
+
+        [Test, Order(2)]
         public void RoleDeleted()
         {
                 
