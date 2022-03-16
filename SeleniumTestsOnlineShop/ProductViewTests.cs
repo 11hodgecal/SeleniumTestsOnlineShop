@@ -56,6 +56,31 @@ namespace SeleniumTestsOnlineShop
 
         }
 
+        [Test, Order(3)]
+        public void ItemAddedToBasket()
+        {
+            driver.Navigate().GoToUrl("https://localhost:5001/");
+            IWebElement Addbasket = driver.FindElement(By.XPath("" +
+                "/html/body/div/main/div/div[1]/div/div/a"));
+            string selected = driver.FindElement(By.XPath("/html" +
+                "/body/div/main/div/div[1]/div/div/p[1]")).Text;
+
+            Addbasket.Click();
+
+            string basketTitle = driver.FindElement(By.XPath("/html/" +
+                "body/div/main/table/tbody/tr/td[2]")).Text;
+
+            var itemadded = false;
+
+            if (selected == basketTitle)
+            {
+                itemadded = true;
+            }
+
+            Assert.IsTrue(itemadded);
+        }
+        
+
         [OneTimeTearDown]
         public void End()
         {
