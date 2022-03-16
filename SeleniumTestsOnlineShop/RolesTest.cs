@@ -104,7 +104,7 @@ namespace SeleniumTestsOnlineShop
         [OneTimeTearDown]
         public void End()
         {
-            //driver.Close();
+            driver.Close();
         }
     }
 }
