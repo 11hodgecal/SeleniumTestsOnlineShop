@@ -39,6 +39,10 @@ namespace SeleniumTestsOnlineShop
                 "/html/body/div/main/form/div/input"));
             create.SendKeys("Test");
             create.Submit();
+
+            var expected = "Test";
+            Assert.AreEqual(expected, driver.FindElement(By.XPath("/html" +
+                "/body/div/main/table/tbody/tr[4]/td[2]")).Text);
         }
 
         [Test, Order(2)]
@@ -100,7 +104,7 @@ namespace SeleniumTestsOnlineShop
         [OneTimeTearDown]
         public void End()
         {
-            driver.Close();
+            //driver.Close();
         }
     }
 }
