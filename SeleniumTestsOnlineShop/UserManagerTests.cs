@@ -35,32 +35,38 @@ namespace SeleniumTestsOnlineShop
         [Test, Order(1)]
         public void DeleteUserPass()
         {
-            IWebElement ManagerDeleteBtn = driver.FindElement(By.XPath("" +
+            try
+            {
+                IWebElement ManagerDeleteBtn = driver.FindElement(By.XPath("" +
                 "/html/body/div/main/table/tbody/tr[2]/td[6]/a"));
-            
-            if (ManagerDeleteBtn == null)
-            {
-                Assert.Fail("Register a new User");
-            }
 
-            if (ManagerDeleteBtn != null)
-            {
-                ManagerDeleteBtn.Click();
-                try
+                if (ManagerDeleteBtn == null)
                 {
-                    IWebElement ManagerDeleteBtnFind = driver.FindElement(By.XPath("" +
-                    "/html/body/div/main/table/tbody/tr[2]/td[6]/a"));
-
-                }
-                catch (Exception ex)
-                {
-                    Assert.Pass("Deleted User");
+                    Assert.Pass("Register a new User");
                 }
 
-                Assert.Fail("Failed to Delete User");
-            }
+                if (ManagerDeleteBtn != null)
+                {
+                    ManagerDeleteBtn.Click();
+                    try
+                    {
+                        IWebElement ManagerDeleteBtnFind = driver.FindElement(By.XPath("" +
+                        "/html/body/div/main/table/tbody/tr[2]/td[6]/a"));
 
-            
+                    }
+                    catch (Exception ex)
+                    {
+                        Assert.Pass("Deleted User");
+                    }
+
+                    Assert.Fail("Failed to Delete User");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Assert.Pass("Register A new User");
+            }
         }
 
         
