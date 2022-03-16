@@ -37,10 +37,12 @@ namespace SeleniumTestsOnlineShop
         {
 
             string expected = "Back";
-            IWebElement DeleteBtn = driver.FindElement(By.XPath("/html/body/div/main/table/tbody/tr[1]/td[2]/a[2]"));
+            IWebElement DeleteBtn = driver.FindElement(By.XPath("/html/body" +
+                "/div/main/table/tbody/tr[1]/td[2]/a[2]"));
             DeleteBtn.Click();
 
-            IWebElement BackBtn = driver.FindElement(By.XPath("/html/body/div/main/div/form/a"));
+            IWebElement BackBtn = driver.FindElement(By.XPath("/html/body/div" +
+                "/main/div/form/a"));
 
             Assert.AreEqual(expected, BackBtn.Text);
         }
