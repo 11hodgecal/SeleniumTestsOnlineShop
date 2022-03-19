@@ -34,21 +34,25 @@ namespace SeleniumTestsOnlineShop
         public void EditButtonDisplaysProperly()
         {
             string expected = "Update Product";
-            IWebElement EditBtn = driver.FindElement(By.XPath("/html/body/div/main/table/tbody/tr[2]/td[4]/a[1]"));
+            IWebElement EditBtn = driver.FindElement(By.XPath("" +
+                "/html/body/div/main/table/tbody/tr[2]/td[4]/a[1]"));
             EditBtn.Click();
 
-            string Backbtn = driver.FindElement(By.XPath("/html/body/div/main/div/form/div/div[5]/button")).Text;
+            string Backbtn = driver.FindElement(By.XPath("" +
+                "/html/body/div/main/div/form/div/div[5]/button")).Text;
             Assert.AreEqual(expected, Backbtn);
         }
         [Test, Order(2)]
-        public void UpdateCreateButtonDisplaysProperly()
+        public void DeletebackRedirectsCorrectly()
         {
             driver.Navigate().GoToUrl("https://localhost:5001/Admin/Product");
             string expected = "https://localhost:5001/Admin/Product";
-            IWebElement DeleteBtn = driver.FindElement(By.XPath("/html/body/div/main/table/tbody/tr[2]/td[4]/a[2]"));
+            IWebElement DeleteBtn = driver.FindElement(By.XPath("" +
+                "/html/body/div/main/table/tbody/tr[2]/td[4]/a[2]"));
             DeleteBtn.Click();
 
-            IWebElement BackBtn = driver.FindElement(By.XPath("/html/body/div/main/form/div/div/a"));
+            IWebElement BackBtn = driver.FindElement(By.XPath("" +
+                "/html/body/div/main/form/div/div/a"));
             BackBtn.Click();
 
             Assert.AreEqual(expected, driver.Url);
@@ -60,7 +64,7 @@ namespace SeleniumTestsOnlineShop
         [OneTimeTearDown]
         public void End()
         {
-            //driver.Close();
+            driver.Close();
         }
     }
 }
